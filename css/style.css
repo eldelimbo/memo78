@@ -1,0 +1,253 @@
+:root{
+    --primary: #ffffff6f;
+    --bg: #000000;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: white;
+    min-height: 9000px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: rgba(1, 1, 1, 0.8);
+    border-bottom: 1px solid var(--primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.navbar .navbar-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    font-style: italic;
+}
+
+.navbar .navbar-nav a {
+    color: #ffffff;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: 0 4rem;
+}
+
+.navbar ,.navbar-nav a:hover {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+    transition: 0.2s linear;
+}
+
+.navbar .navbar-extra a {
+    color: white;
+    margin: 0 0.5rem;
+    
+}
+
+.navbar .navbar-extra a:hover {
+    color: var(--primary);
+}
+
+#menu {
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    height: 115vh;
+    display: flex;
+    align-items: center;
+    background-image: url(../img/header-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(1,1,3,1) 3%, rgba(255,255,255,0) 25%);
+}
+
+.hero .content {
+    padding: 1.4rem 7%;
+    max-width: 40rem;
+}
+
+.hero .content h1 {
+    font-size: 2em;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(1, 1, 1, 0.5);
+    line-height: 1.1;
+}
+
+.hero .content p {
+    color: white;
+    text-shadow: 1px 1px 3px rgba(1, 1, 1, 0.5);
+    line-height: 1.1;
+    font-weight: 400;
+}
+
+/* kitasiapa Section */
+.kitasiapa,
+.memories {
+    padding: 10rem 7% 1.4rem;
+}
+
+.kitasiapa h2,
+.memories h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+}
+
+.kitasiapa .row {
+    display: flex;
+}
+
+.kitasiapa .row .aboutimg {
+    flex: 1 1 15rem;
+}
+
+.kitasiapa .row .aboutimg img {
+    width: 100%;
+}
+
+.kitasiapa .row .content {
+    flex: 1 1 40rem;
+    padding: 0 5rem;
+}
+
+.kitasiapa .row .content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.kitasiapa .row .content p {
+    margin-bottom: 0.8rem;
+    font-weight: 100;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+/* Memories Section */
+.memories .memo {
+    display: flex;
+}
+
+.memories .memo .memo1 img {
+    flex: 1 1 45rem;
+}
+
+.memories .memo .memo1 h1,
+.memories .memo .memo1 p {
+    text-align: right;
+    flex: 1 1 35rem;
+    padding: 0 0 5rem;
+}
+
+
+/* Media Queries */
+
+/* Laptop */
+@media (max-width: 1366px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+/* Tablet */
+@media (max-width: 758px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    #menu {
+        display: inline-block;
+    }
+
+    .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: white;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    .navbar .navbar-nav.active {
+        right: 0;
+    }
+
+    .navbar .navbar-nav a {
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a::after {
+        transform-origin: 0 0;
+    }
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.2);
+    }
+
+    .kitasiapa .row {
+        flex-wrap: wrap;
+    }
+
+    .kitasiapa .row .aboutimg img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .kitasiapa .row .content {
+        padding: 0;
+    }
+
+    .kitasiapa .row .content h3 {
+        margin-top: 1rem;
+        font-size: 2.2rem;
+    }
+}
+/* Mobile */
+@media (max-width: 450px) {
+    html {
+        font-size: 55%;
+    }
+}
